@@ -12,10 +12,7 @@ class HomeView extends StatelessWidget {
           child: CupertinoButton.filled(
         child: Text("Start game"),
         onPressed: () {
-          Get.to(
-            () => GameView(),
-            transition: Transition.cupertino,
-          );
+          Get.to(GameView(), transition: Transition.cupertino);
         },
       )),
     );
