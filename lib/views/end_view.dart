@@ -26,7 +26,7 @@ class EndView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       (index < 6)
-                          ? Image.asset("images/win.jpg", width: 200)
+                          ? Image.asset("images/win.webp", width: 200)
                           : Image.asset("images/$index.png"),
                       Center(
                         child: Text(
