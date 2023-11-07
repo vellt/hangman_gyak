@@ -1,10 +1,14 @@
 // játék logika
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hangman/models/tipp.dart';
 import 'package:hangman/views/end_view.dart';
 
 class GameViewController extends GetxController {
+  GameViewController(this.context);
+  BuildContext context;
+
   List<String> szovegek = [
     "a",
   ];
@@ -99,10 +103,25 @@ class GameViewController extends GetxController {
     }
   }
 
+  Future kepekLetarolasaCacheMemoriaba() async {
+    await precacheImage(AssetImage('images/0.png'), context);
+    await precacheImage(AssetImage('images/1.png'), context);
+    await precacheImage(AssetImage('images/2.png'), context);
+    await precacheImage(AssetImage('images/3.png'), context);
+    await precacheImage(AssetImage('images/4.png'), context);
+    await precacheImage(AssetImage('images/5.png'), context);
+    await precacheImage(AssetImage('images/6.png'), context);
+    await precacheImage(AssetImage('images/win.webp'), context);
+  }
+
+  bool theInitIsDone = false;
+
   @override
-  void onInit() {
+  void onInit() async {
     // TODO: implement onInit
     super.onInit();
+    await kepekLetarolasaCacheMemoriaba();
     init();
+    theInitIsDone = true;
   }
 }
