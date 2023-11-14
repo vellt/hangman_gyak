@@ -9,15 +9,48 @@ class HomeViewController extends GetxController {
   TextEditingController school = TextEditingController();
 
   void jatekInditasa() {
-    if (firstname.text != "" && lastname.text != "" && school != "") {
+    if (firstname.text != "" && lastname.text != "" && school.text != "") {
       //beléphet a játékba
       Get.to(GameView(), transition: Transition.cupertino);
     } else if (firstname.text == "") {
-      Get.showSnackbar(GetSnackBar(message: "Nem adtad meg a keresztneved!"));
+      Get.dialog(CupertinoAlertDialog(
+        title: Text("Hiba"),
+        content: Text("Nem adtad meg a keresztneved!"),
+        actions: [
+          CupertinoDialogAction(
+            child: Text("ok"),
+            onPressed: () {
+              Get.back();
+            },
+          )
+        ],
+      ));
     } else if (lastname.text == "") {
-      Get.showSnackbar(GetSnackBar(message: "Nem adtad meg a vezetékneved!"));
+      Get.dialog(CupertinoAlertDialog(
+        title: Text("Hiba"),
+        content: Text("Nem adtad meg a vezetékneved!"),
+        actions: [
+          CupertinoDialogAction(
+            child: Text("ok"),
+            onPressed: () {
+              Get.back();
+            },
+          )
+        ],
+      ));
     } else {
-      Get.showSnackbar(GetSnackBar(message: "Nem adtad meg az iskoládat!"));
+      Get.dialog(CupertinoAlertDialog(
+        title: Text("Hiba"),
+        content: Text("Nem adtad meg az iskoládat!"),
+        actions: [
+          CupertinoDialogAction(
+            child: Text("ok"),
+            onPressed: () {
+              Get.back();
+            },
+          )
+        ],
+      ));
     }
   }
 }
