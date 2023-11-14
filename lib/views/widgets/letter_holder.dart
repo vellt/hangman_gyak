@@ -13,7 +13,7 @@ class LetterHolder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 100),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -23,6 +23,7 @@ class LetterHolder extends StatelessWidget {
           LetterButton(letter: letters[3], controller: controller),
           LetterButton(letter: letters[4], controller: controller),
           LetterButton(letter: letters[5], controller: controller),
+          LetterButton(letter: letters[6], controller: controller),
         ],
       ),
     );

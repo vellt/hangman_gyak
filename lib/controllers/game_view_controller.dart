@@ -2,27 +2,29 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hangman/models/message.dart';
 import 'package:hangman/models/tipp.dart';
 import 'package:hangman/views/end_view.dart';
 
 class GameViewController extends GetxController {
-  GameViewController(this.context);
+  GameViewController(
+    this.uid,
+    this.context,
+    this.messages,
+  );
   BuildContext context;
-
-  List<String> szovegek = [
-    "a",
-  ];
+  List<Message> messages;
+  int uid;
 
   String randomSzoveg = ""; //alma
 
-  String csillagosSzoveg = ""; //****
+  String csillagosSzoveg = ""; //____
 
   void init() {
-    int index = Random().nextInt(szovegek.length); //]0,szoveghossz];
-    randomSzoveg = szovegek[index];
+    randomSzoveg = "A"; //messages[0].content;
     csillagosSzoveg = "";
     for (int i = 0; i < randomSzoveg.length; i++) {
-      csillagosSzoveg += "*";
+      csillagosSzoveg += "_";
     }
     tippek = [];
     update();
@@ -87,7 +89,15 @@ class GameViewController extends GetxController {
       ));
       update();
       if (nyertEaFelhasznalo()) {
-        Get.to(EndView("Gratulálok! Nyertél!", hibakSzama()));
+        // ha nyert
+        Get.to(EndView(
+          "Nyertél!",
+          "",
+          messages[1].content.trim(),
+          hibakSzama(),
+          uid,
+          messages[1].id,
+        ));
       }
     } else {
       // rossz tipp
@@ -97,8 +107,14 @@ class GameViewController extends GetxController {
       ));
       update();
       if (vesztettEaFelhasznalo()) {
-        Get.to(EndView("Sajnos vesztettél! Amire gondoltam: ${randomSzoveg} ",
-            hibakSzama()));
+        Get.to(EndView(
+          "Sajnos ez most nem sikerült!",
+          messages[0].content.trim(),
+          " lett volna a helyes megoldás",
+          hibakSzama(),
+          uid,
+          messages[1].id,
+        ));
       }
     }
   }
