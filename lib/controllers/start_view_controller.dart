@@ -15,7 +15,7 @@ class StartViewController extends GetxController {
   bool isLoading = false;
 
   void jatekInditasa() async {
-    if (firstname.text != "" && lastname.text != "" && school.text != "") {
+    if (firstname.text == "" && lastname.text != "" && school.text != "") {
       //beléphet a játékba
       isLoading = true;
       update();

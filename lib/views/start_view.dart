@@ -44,20 +44,8 @@ class StartView extends StatelessWidget {
                               controller: controller.lastname,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: "add meg a vezetékneved",
-                                labelText: "Vezetéknév",
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 40),
-                            child: TextField(
-                              controller: controller.firstname,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: "add meg a keresztneved",
-                                labelText: "Keresztnév",
+                                hintText: "add meg a beceneved",
+                                labelText: "Becenév",
                               ),
                             ),
                           ),
