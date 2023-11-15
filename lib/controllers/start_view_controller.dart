@@ -45,7 +45,7 @@ class StartViewController extends GetxController {
     } else if (firstname.text == "") {
       Get.dialog(CupertinoAlertDialog(
         title: Text("Tölts ki minden adatot"),
-        content: Text("Nem adtad meg a keresztneved!"),
+        content: Text("Nem adtad meg a beceneved!"),
         actions: [
           CupertinoDialogAction(
             child: Text("ok"),
